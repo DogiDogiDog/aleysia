@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="device-width", initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <section>
+    <h1> Ajouter un agent </h1>
+    <form  action='/agents/add'  id="formAgent" method="POST" enctype="application/x-www-form-urlencoded" >
+      <input type="text" placeholder="Prenom" value="Karen" name="Prenom">
+      <input type="text" placeholder="Nom" value="Karen22" name="Nom">
+      <input type="number" placeholder="Objectif" value="33000" name="Objectif">
+      <input type="radio" name="statut" value="Responsable" checked>
+      <label>Agent Commercial</label>
+      <input type="radio" name="statut" value="Responsable">
+      <label>Responsable</label>
+      <input type="radio" name="statut" value="Directeur">
+      <label>Directeur</label>
+      <input type="submit" value="Add Agent" id="submit">
+    </form>
+  </section>
+    <section id="agence">
+        <table>
+            <thead>
+              <tr>
+                <th colspan="2"> Objectifs </th>
+                <th>Objectifs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2"> Chiffre d'affaire </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="2"> Taux de marge </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="2"> Marge nette </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="2"> Objectif cumulé </td>
+                <td></td>
+              </tr>
+              <tr>
+                <td colspan="2"> CA cumulé </td>
+                <td></td>
+              </tr>
+            </tbody>
+            </table>
+    </section>
+
+    <section id="agents">
+        <table>
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Objectifs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+            </table>
+    </section>
+
+    <section id="consultants">
+        <table>
+            <thead>
+              <tr>
+                <th>Manager</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Prix de revient</th>
+                <th>Prix de revente </th>
+                <th>Frais</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+            </table>
+    </section>
+    <script>
+      // var btn = document.getElementById("submit")
+      // btn.onclick=function(){
+      //   var request = new XMLHttpRequest();
+      //   request.open("POST", "http://localhost:3000/");
+      //   request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+      //   console.log(formData)
+      //   request.send(new FormData(document.getElementById("formAgent")));
+      // }
+    </script>
+</body>
+
+</html>

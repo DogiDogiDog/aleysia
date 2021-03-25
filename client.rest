@@ -1,0 +1,10 @@
+POST http://localhost:3000/
+
+###
+
+POST http://localhost:3000/agents/
+
+###
+
+POST http://localhost:3000/
+content-type: "application/x-www-form-urlencoded"
