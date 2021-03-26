@@ -10,7 +10,6 @@
     "mssql": "^6.3.1",
     "mysql": "^2.18.1",
     "npm": "^7.6.3",
-    "tedious": "^9.2.1",
     "tedious-connection-pool": "^1.0.5"
   },
   "devDependencies": {

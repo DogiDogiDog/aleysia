@@ -35,6 +35,7 @@ app.get('/', function(req, res) {
       'Content-type':'text/html; charset=utf-8'
     })
     /** TODO : retrieve data from DB */
+    sql.getListAgents()
     res.end(data)
   })
 });
