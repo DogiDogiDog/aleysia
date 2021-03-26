@@ -15,7 +15,7 @@ route('/add')
     /** TODO send html result request */
     
     /** TODO : SQL REQUEST ADD AGENT */
-    sql.createAgent(req.body.Prenom, req.body.Nom, req.body.Objectif, req.body.statut )
+    sql.createAgent(req.body.Prenom, req.body.Nom, req.body.Objectif, req.body.statut)
 
   })
 

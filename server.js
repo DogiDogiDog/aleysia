@@ -27,15 +27,16 @@ app.put('/',(req,res)=>{
 
 app.get('/', function(req, res) {
   fs.readFile('./html/index.html', (err, data) => {
-        if (err) {
-          res.writeHead(404)
-          res.end("Ce fichier n'existe pas")
-        }
-        res.writeHead(200, {
-          'Content-type':'text/html; charset=utf-8'
-        })
-        res.end(data)
-      })
+    if (err) {
+      res.writeHead(404)
+      res.end("Ce fichier n'existe pas")
+    }
+    res.writeHead(200, {
+      'Content-type':'text/html; charset=utf-8'
+    })
+    /** TODO : retrieve data from DB */
+    res.end(data)
+  })
 });
 
 
