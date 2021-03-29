@@ -5,7 +5,14 @@ const express = require('express')
 const app=express()
 const agents=require("./routes/agents")
 const router = express.Router();
+const path = require('path')
+const serveStatic = require('serve-static')
 
+
+console.log(__dirname)
+
+app.use('/', express.static(__dirname + '/public'));
+app.set("view engine", "pug");
 /** DB CONNECTION */
 app.use(express.urlencoded({ extended: true }))
 

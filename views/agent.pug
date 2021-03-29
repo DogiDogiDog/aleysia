@@ -1,0 +1,15 @@
+
+link(rel='stylesheet', href='/CSS/bootstrap.min.css')
+table.table
+  thead
+    td id
+    td nom
+    td prenom
+    td objectif
+    td Responsable 
+    td Directeur
+  each user in data
+    tr
+      each objet, column in user
+        td #{objet.value}
+      
