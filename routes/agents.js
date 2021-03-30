@@ -12,11 +12,10 @@ route('/add')
   })
 .post((req,res)=>{
     console.log(req.body)
-    res.send("post agent")
     /** TODO send html result request */
-    
+    res.render('addAgent')
     /** TODO : SQL REQUEST ADD AGENT */
-    sql.createAgent(req.body.Prenom, req.body.Nom, req.body.Objectif, req.body.statut)
+    sql.createAgent(req.body.Prenom, req.body.Nom, req.body.Objectif)
   })
 
   router
