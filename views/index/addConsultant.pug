@@ -1,0 +1,15 @@
+section.container
+  h1  Ajouter un consultant 
+  form#formConsult(action='/consultants/add' method='POST' enctype='application/x-www-form-urlencoded')
+    input(type='text' placeholder='Prenom' value='Jeanne' name='Prenom')
+    input(type='text' placeholder='Nom' value='LEBON' name='Nom')
+    input(type='number' placeholder='Prix de vente' value='300' name='price')
+    input(type='number' placeholder='Cout de revient' value='100' name='cost')
+    input(type='number' placeholder='Frais' value='10' name='charges')
+    label Qui est son responsable ?
+    select(name="responsable")
+      each user in data
+        option(value=user.id.value) #{user.name.value} #{user.first_name.value}
+    input#submit(type='submit' value='Add Agent')
+
+  a(href="/consultants/list") LISTE DES CONSULTANTS

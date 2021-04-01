@@ -4,9 +4,12 @@ const fs = require('fs')
 const express = require('express')
 const app=express()
 const agents=require("./routes/agents")
+const consultants=require("./routes/consultants")
+
 const router = express.Router();
 const path = require('path')
 const serveStatic = require('serve-static')
+const { render } = require('pug')
 
 
 console.log(__dirname)
@@ -19,33 +22,26 @@ app.use(express.urlencoded({ extended: true }))
 
 /** ROUTES */
 app.use('/agents', agents)
+app.use('/consultants', consultants)
 app.use('/', router)
 
 
-app.post('/', (req,res)=>{
-  console.log(req.body)
-})
-
-
-app.put('/',(req,res)=>{
-  console.log(req.body)
-})
-
-
 app.get('/', function(req, res) {
-  fs.readFile('./html/index.html', (err, data) => {
-    if (err) {
-      res.writeHead(404)
-      res.end("Ce fichier n'existe pas")
-    }
-    res.writeHead(200, {
-      'Content-type':'text/html; charset=utf-8'
-    })
+  // fs.readFile('./html/index.html', (err, data) => {
+  //   if (err) {
+  //     res.writeHead(404)
+  //     res.end("Ce fichier n'existe pas")
+  //   }
+  //   res.writeHead(200, {
+  //     'Content-type':'text/html; charset=utf-8'
+  //   })
+
     /** TODO : retrieve data from DB */
-    sql.getListAgents()
-    res.end(data)
+    sql.getListAgents().then(data=>{
+
+      res.render("index", {data})})
   })
-});
+
 
 
 //SERVER BASE

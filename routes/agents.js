@@ -11,19 +11,18 @@ route('/add')
     res.send("get agent")
   })
 .post((req,res)=>{
-    console.log(req.body)
-    /** TODO send html result request */
-    res.render('addAgent')
-    /** TODO : SQL REQUEST ADD AGENT */
-    sql.createAgent(req.body.Prenom, req.body.Nom, req.body.Objectif)
-  })
+    sql.createAgent(req.body.Prenom, req.body.Nom, req.body.Objectif).then((data)=>{
+      console.log(data)
+      res.render('response/addAgent')
+    })
+})
 
   router
   .route('/list')
   .get((req,res)=>{
     //TODO display list of agents
     sql.getListAgents().then(data=>{
-      res.render('agent', {data});
+      res.render('list/list_agents', {data});
     })
   })
 
