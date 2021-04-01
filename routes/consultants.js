@@ -10,7 +10,8 @@ route('/add')
     res.send("GET consultant")
   })
 .post((req,res)=>{
-    sql.createConsultant(req.body.Prenom, req.body.Nom, req.body.price,req.body.cost, req.body.charges,req.body.responsable).then((data)=>{
+    sql.createConsultant(req.body.Prenom, req.body.Nom, req.body.price,req.body.cost, req.body.charges,req.body.responsable)
+    .then((data)=>{
       console.log(data)
       res.render('response/addConsultant')
     })  

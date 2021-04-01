@@ -1,6 +1,7 @@
 link(rel='stylesheet', href='/CSS/bootstrap.min.css')
 table.table
   thead
+    td Consultants
     td id
     td nom
     td prenom
@@ -10,7 +11,11 @@ table.table
     td id_manager
   each user in data
     tr
+      td 
+        a(href="create")
+          button(class="btn btn-small" type="button") Modifier
       each objet, column in user
         td #{objet.value}
+        
   a(href="/") HOME
       
