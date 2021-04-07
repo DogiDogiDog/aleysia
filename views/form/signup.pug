@@ -1,0 +1,17 @@
+doctype html
+body 
+    form#formConsult(action='/connection/signup' method='POST' enctype='application/x-www-form-urlencoded')
+        .container
+        h1 Sign Up
+        p Please fill in this form to create an account.
+        hr
+        label(for='email')
+        b Email
+        input(type='text' placeholder='Enter Email' name='email' required='')
+        label(for='psw')
+        b Password
+        input(type='password' placeholder='Enter Password' name='psw' required='')
+        label(for='psw-repeat')
+        button.signupbtn(type='submit') Sign Up
+
+

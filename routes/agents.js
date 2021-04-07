@@ -17,14 +17,14 @@ route('/add')
     })
 })
 
-  router
-  .route('/list')
-  .get((req,res)=>{
-    //TODO display list of agents
-    sql.getListAgents().then(data=>{
-      res.render('list/list_agents', {data});
-    })
+router
+.route('/list')
+.get((req,res)=>{
+  //TODO display list of agents
+  sql.getListAgents().then(data=>{
+    res.render('list/list_agents', {data});
   })
+})
 
 
 
