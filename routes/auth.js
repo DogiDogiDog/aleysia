@@ -18,9 +18,10 @@ route('/login')
         const token = jwt.sign({ userId: req.body.email }, 'RANDOM_TOKEN_SECRET', { expiresIn: '24h' });
        // res.status(200).json({ userId: req.body.email, token: token });
         console.log("data is true")
-        return res.json({ access_token: token })
+        //res.cookie("sessionID", token)
+        res.redirect("/home")
       }else{
-        res.redirect(res.location()+"/connection")
+        res.render("form/login", {message: "Erreur identification"})
       }
     })  
 })
