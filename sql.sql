@@ -57,8 +57,11 @@ where consultant.name='Alfred'
 
 CREATE TABLE Credentials(
 	email varchar(255),
-	psw varchar(255)
+	psw varchar(255),
+	token varchar(255)
 )
+
+
 TRUNCATE TABLE Credentials
 ----------------------------------------------------------
 

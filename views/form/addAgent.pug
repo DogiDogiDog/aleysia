@@ -1,9 +1,19 @@
 section.container
   h1  Ajouter un agent 
   form#formAgent(action='/agents/add' method='POST' enctype='application/x-www-form-urlencoded')
-    input(type='text' placeholder='Prenom' value='Karen' name='Prenom')
-    input(type='text' placeholder='Nom' value='Pierre' name='Nom')
-    input(type='number' placeholder='Objectif' value='33000' name='Objectif')
-    input#submit(type='submit' value='Add Agent')
+    div.form-group
+    label(for='Prenom').form-label
+      b Prenom
+      input(type='text' placeholder='Prenom' value='Karen' name='Prenom').form-control
+    div.form-group
+      label(for='Nom').form-label
+        b Nom
+      input(type='text' placeholder='Nom' value='Pierre' name='Nom').form-control
+    div.form-group
+      label(for='Objectif').form-label
+        b Objectifs
+      input(type='number' placeholder='Objectif' value='33000' name='Objectif').form-control
+    div.form-group
+      input#submit(type='submit' value='Add Agent').form-control
   
   a(href="/agents/list") LISTE DES AGENTS

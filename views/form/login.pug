@@ -1,15 +1,22 @@
 doctype html
-body 
-    form#formConsult(action='/connection/login' method='POST' enctype='application/x-www-form-urlencoded')
-        label(for='uname')
-            b Email
-        input(type='text' placeholder='Enter Username' name='email' required='')
-        label(for='psw')
-            b Email
-        input(type='password' placeholder='Enter Password' name='psw' required='')
-        button(type='submit') Login
-        .container(style='background-color:#f1f1f1')
-        button.cancelbtn(type='button') Cancel
+head 
+    link(rel='stylesheet', href="/CSS/bootstrap.min.css")
+body
+    div.container
+        h1 Log In
+        form#formConsult(action='/connection/login' method='POST' enctype='application/x-www-form-urlencoded')
+            div.mb-3
+                label(for='uname').form-label
+                    b Email
+                input(type='text' placeholder='Enter Username' name='email' required='')
+            
+            div.mb-3
+                label(for='psw')
+                    b Password
+                input(type='password' placeholder='Enter Password' name='psw' required='')
+            button(type='submit') Login
+            .container(style='background-color:#f1f1f1')
+            button.cancelbtn(type='button') Cancel
         span.psw
             | Premiere connexion ? 
             a(href='/connection/signup') Cliquez ici?

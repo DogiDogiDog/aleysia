@@ -1,15 +1,31 @@
 section.container
   h1  Ajouter un consultant 
   form#formConsult(action='/consultants/add' method='POST' enctype='application/x-www-form-urlencoded')
-    input(type='text' placeholder='Prenom' value='Jeanne' name='Prenom')
-    input(type='text' placeholder='Nom' value='LEBON' name='Nom')
-    input(type='number' placeholder='Prix de vente' value='300' name='price')
-    input(type='number' placeholder='Cout de revient' value='100' name='cost')
-    input(type='number' placeholder='Frais' value='10' name='charges')
-    label Qui est son responsable ?
-    select(name="responsable")
-      each user in data
-        option(value=user.id.value) #{user.name.value} #{user.first_name.value}
-    input#submit(type='submit' value='Add Agent')
+    div.form-group
+      label(for='Prenom').form-label
+        b Prenom
+      input(type='text' placeholder='Prenom' value='Jeanne' name='Prenom').form-control
+    div.form-group
+      label(for='Nom').form-label
+        b Nom
+      input(type='text' placeholder='Nom' value='LEBON' name='Nom').form-control
+    div.form-group
+      label(for='price').form-label
+        b Prix de vente
+      input(type='number' placeholder='Prix de vente' value='300' name='price').form-control
+    div.form-group
+      label(for='cost').form-label
+        b Coût de revient
+      input(type='number' placeholder='Cout de revient' value='100' name='cost').form-control
+    div.form-group
+      label(for='charges').form-label
+        b Frais
+      input(type='number' placeholder='Frais' value='10' name='charges').form-control
+    div.form-group
+      label Qui est son responsable ?
+      select(name="responsable").form-control
+        each user in data
+          option(value=user.id.value) #{user.name.value} #{user.first_name.value}
+      input#submit(type='submit' value='Add Agent').form-control
 
   a(href="/consultants/list") LISTE DES CONSULTANTS

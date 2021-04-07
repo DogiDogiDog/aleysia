@@ -24,6 +24,13 @@ app.use('/consultants', consultants)
 app.use('/connection', auth)
 app.use('/', router)
 
+// app.use((req,res)=>{
+//   //const authToken = req.cookies['sessionID'];
+//   // Inject the user to the request
+//   //req.user = authTokens[authToken];
+// })
+
+
 app.get("/", (req,res)=>{
     res.redirect('/connection');
 })
