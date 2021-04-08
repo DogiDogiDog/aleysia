@@ -12,8 +12,8 @@ table.table
   each user in data
     tr
       td 
-        a(href="modify")
-          button(class="btn btn-small" type="button") Modifier
+        a(href="calendar/"+user.id.value+"")
+          button(type="button") Modifier
       each objet, column in user
         td #{objet.value}
         

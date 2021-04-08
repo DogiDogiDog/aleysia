@@ -20,18 +20,18 @@ FOREIGN KEY(responsable) REFERENCES agent(id))
 CREATE table Calendar(
 consultant int PRIMARY KEY  not null,
 annee int NOT NULL,
-janvier int,
-fevrier int,
-mars int,
-avril int,
-mai int,
-juin int,
-juillet int,
-aout int,
-septembre int,
-octobre int,
-novembre int, 
-decembre int,
+janvier int default 0,
+fevrier int default 0,
+mars int default 0,
+avril int default 0,
+mai int default 0,
+juin int default 0,
+juillet int default 0,
+aout int default 0,
+septembre int default 0,
+octobre int default 0,
+novembre int default 0,
+decembre int default 0,
 FOREIGN KEY(consultant) REFERENCES consultant(id))
 
 
@@ -60,6 +60,20 @@ CREATE TABLE Credentials(
 	psw varchar(255),
 	token varchar(255)
 )
+
+ CREATE TRIGGER calendar_consultant
+ ON Consultant
+ AFTER INSERT
+ AS
+ INSERT INTO Calendar(consultant, annee)
+ VALUES((SELECT id FROM CONSULTANT
+ WHERE id=(SELECT id from inserted)), YEAR(GETDATE()));
+
+
+UPDATE CALENDAR  
+SET janvier=12
+WHERE CALENDAR.consultant=1
+AND CALENDAR.annee=2021
 
 
 TRUNCATE TABLE Credentials
