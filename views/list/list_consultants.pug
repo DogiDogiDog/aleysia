@@ -13,6 +13,8 @@ table.table
     tr
       td 
         a(href="calendar/"+user.id.value+"")
+          button(type="button") Jours travaillés
+        a(href="modify/"+user.id.value+"")
           button(type="button") Modifier
       each objet, column in user
         td #{objet.value}

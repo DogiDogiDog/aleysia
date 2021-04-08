@@ -20,12 +20,23 @@ route('/add')
 })
 
 router
-.route('/modify')
+.route('/modify/:id')
 .get((req,res)=>{
-  res.send("Modify")
+  sql.getConsultant(req.params.id).then(data=>{
+    res.render("form/consultant", {data})
+  }) 
 })
 
-
+.post((req,res)=>{
+  sql.updateConsultant(req.body, req.params.id).then((data)=>{
+    sql.getConsultant(req.params.id).then(data=>{
+      //delete data[0].id
+      //delete data[0].responsable
+      console.log(data)
+      res.render('form/consultant', {data:data, id:req.params.id, message:"Modifications enregistrées !"} );
+    })
+  })
+})
 router
 .route('/list')
 .get((req,res)=>{
@@ -36,7 +47,6 @@ router
     res.render('list/list_consultants', {data});
   })
 })
-
 
 router
 .route('/calendar/:id')
@@ -50,26 +60,16 @@ router
 
 .post((req,res)=>{
   //TODO display list of agents
-  const tab={}
   for (let [key, value] of Object.entries(req.body)) {
       if(value==null || value == '')
         req.body[key]=0
   }
-   sql.consultantBusinessDay(req.body, req.params.id).then((data)=>{
-    res.render('response/modifyCalendar');
-   })
-  
-})
-
-// router
-// .route('/calendar/modify/:id')
-// .get((req,res)=>{
-//   //TODO display list of agents
-//     sql.getCalendar(req.params.id).then((data)=>{
-//       console.log(data)
-//       res.render('form/calendar', {data});
-//     })
-// })
+   sql.updateConsultantBusinessDay(req.body, req.params.id).then((data)=>{
+    sql.getCalendar(req.params.id).then((data)=>{
+      res.render('form/calendar', {data:data, id_consultant:req.params.id, message:"Modifications enregistrées !"} );
+     })
+    })
+  })
 
 
 module.exports = router;
