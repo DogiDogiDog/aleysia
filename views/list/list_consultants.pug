@@ -1,14 +1,19 @@
 link(rel='stylesheet', href='/CSS/bootstrap.min.css')
 table.table
   thead
-    td Consultants
+    td Consultantst
     td id
-    td nom
     td prenom
+    td nom
+    td entreprise
     td prix
     td cout de revient 
     td frais
     td id_manager
+    td Marge% 
+    td marge
+    td CA 
+    td Marge Totale
   each user in data
     tr
       td 
@@ -18,6 +23,7 @@ table.table
           button(type="button") Modifier
       each objet, column in user
         td #{objet.value}
-        
+
+          
   a(href="/home") HOME
       

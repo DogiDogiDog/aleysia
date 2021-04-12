@@ -7,12 +7,12 @@ body.container
                 thead
                 each user in data
                     each objet, column in user
-                        td #{column}
+                        td #{column} 
                 tr
                 each user in data
                     each objet, column in user
                         td 
-                            input(type="number" name=column value=objet.value)
+                            input(type="number" min="0" max=objet.business name=column value=objet.value)
         input(type="submit", value="Valider").input.form-control  
     p #{message}
     a(href="/home") HOME
