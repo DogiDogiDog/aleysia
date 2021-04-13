@@ -8,7 +8,12 @@ table.table
     td objectif
   each user in data
     tr
+      td
+        a(href="calendar/"+user.id.value+"")
+          button(type="button") Jours travaillés
       each objet, column in user
         td #{objet.value}
+      
+
   a(href="/home") HOME
       

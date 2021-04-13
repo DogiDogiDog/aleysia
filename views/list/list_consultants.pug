@@ -10,6 +10,7 @@ table.table
     td cout de revient 
     td frais
     td id_manager
+    td 
     td Marge% 
     td marge
     td CA 
@@ -18,7 +19,7 @@ table.table
     tr
       td 
         a(href="calendar/"+user.id.value+"")
-          button(type="button") Jours travaillés
+          button(type="button") Objectifs par mois
         a(href="modify/"+user.id.value+"")
           button(type="button") Modifier
       each objet, column in user
