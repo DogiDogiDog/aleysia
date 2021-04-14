@@ -37,6 +37,7 @@ router
   .get((req, res) => {
 
     sql.getCalendar(req.params.id).then((data) => {
+      console.log(data)
       res.render('form/calendar', {
         data: data,
         id_agent: req.params.id
