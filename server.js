@@ -35,6 +35,7 @@ app.get("/", (req,res)=>{
     res.redirect('/connection');
 })
 
+
 app.get('/connection', function(req, res) {
   /** TODO : retrieve data from DB */
   res.render("form/login")

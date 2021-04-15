@@ -6,7 +6,6 @@ const calendar = require('../lib/Calendar')
 const express = require('express')
 let router = express.Router()
 
-let listConsultant
 let business = calendar.getBusinessCalendar()
 router.
 route('/add')
@@ -14,7 +13,7 @@ route('/add')
     res.send("GET consultant")
   })
   .post((req, res) => {
-    sql.createConsultant(req.body.Prenom, req.body.Nom, req.body.price, req.body.cost, req.body.charges, req.body.responsable)
+    sql.createConsultant(req.body.Prenom, req.body.Nom, req.body.Entreprise, req.body.price, req.body.cost, req.body.charges, req.body.responsable)
       .then((data) => {
         //console.log(data)
         res.render('response/addConsultant')
@@ -52,7 +51,6 @@ router
     sql.getCalendarFromConsultants().then(data => {
       let dayWorked = iterateCalendar(data)
       sql.getListConsultants().then(data => {
-        listConsultant = data
         data = addInformations(data, dayWorked)
         res.render('list/list_consultants', {
           data

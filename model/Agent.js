@@ -2,13 +2,12 @@
 
  module.exports= class Agent{
 
-    
-    constructor(id,first_name, name, objectif){
+    constructor(id,first_name, name, email,objectif){
         this.id=id;
         this.first_name=first_name;
         this.name=name;
+        this.email=email;
         this.objectif=objectif
-
     }
 
     getId(){
@@ -19,7 +18,11 @@
 
     }
     getFirstName(){
+        return this.first_name;
+    }
 
+    getObjectif(){
+        return this.objectif
     }
 
 

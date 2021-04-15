@@ -9,6 +9,10 @@ section.container
       label(for='Nom').form-label
         b Nom
       input(type='text' placeholder='Nom' value='LEBON' name='Nom').form-control
+      iv.form-group
+      label(for='Nom').form-label
+        b Nom
+      input(type='text' placeholder='Entreprise' value='flowbird' name='Entreprise').form-control
     div.form-group
       label(for='price').form-label
         b Prix de vente
@@ -24,8 +28,8 @@ section.container
     div.form-group
       label Qui est son responsable ?
       select(name="responsable").form-control
-        each user in data
-          option(value=user.id.value) #{user.name.value} #{user.first_name.value}
+        each user in agents
+          option(value=user.id) #{user.name} #{user.first_name}
       input#submit(type='submit' value='Add Agent').form-control
 
   a(href="/consultants/list") LISTE DES CONSULTANTS

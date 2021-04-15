@@ -76,8 +76,8 @@ INSERT INTO AGENT(name, first_name, email, objectif) VALUES
 INSERT INTO AGENT(name, first_name, email, objectif) VALUES
 ('stephane','dupont','thirry.lemarchand@aleysia.com', 40000)
 
-INSERT INTO Consultant(name, first_name, company, price, cost, charges, 1)
-VALUES()
+INSERT INTO Consultant(name, first_name, company, price, cost, charges, responsable)
+VALUES('gerard', 'lebon','flowbird', 200,100,10,6)
 
 
 select * from consultant, calendar
