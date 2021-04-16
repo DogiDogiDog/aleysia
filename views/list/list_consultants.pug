@@ -1,7 +1,7 @@
 link(rel='stylesheet', href='/CSS/bootstrap.min.css')
 table.table
   thead
-    td Consultantst
+    td Consultant
     td id
     td prenom
     td nom
@@ -10,7 +10,6 @@ table.table
     td cout de revient 
     td frais
     td id_manager
-    td 
     td Marge% 
     td marge
     td CA 
@@ -18,12 +17,24 @@ table.table
   each user in data
     tr
       td 
-        a(href="calendar/"+user.id.value+"")
+        a(href="calendar/"+user.id+"")
           button(type="button") Jours travaillés
-        a(href="modify/"+user.id.value+"")
+        a(href="modify/"+user.id+"")
           button(type="button") Modifier
-      each objet, column in user
-        td #{objet.value}
+        td #{user.id}
+        td #{user.first_name}
+        td #{user.name}
+        td #{user.company}
+        td #{user.price}
+        td #{user.cost}
+        td #{user.charges}
+        td #{user.responsable}
+        td #{user.marginPerCent}
+        td #{user.margin}
+        td #{user.business}
+        td #{user.totalMargin}
+         
+        
 
           
   a(href="/home") HOME

@@ -3,73 +3,47 @@ const sql = require('../lib/sqlfunction')
 const jwt = require("jsonwebtoken")
 
 const express = require('express')
-const  consultants = require('../lib/Consultants')
-const  agents = require('../lib/Agents')
+const consultants = require('../lib/Consultants')
+const agents = require('../lib/Agents')
 
 let router = express.Router()
 
 
 router.
 route('/')
-  // .get(function(req, res,next) {
-    
-  //   sql.getCalendarFromAgents().then(data => {
-  //     res.locals.agence=iterateCalendar(data)
-  //    // next()     
-  //   })
-  // })
+  .get(function (req, res, next) {
+      consultants.getList().then(data => {
+        res.locals.consultants = data
+        // console.log(consultants.getList())
+        next()
+      })
+  })
 
-  .get(function(req, res, next){
-    if(consultants.getList().length==0){
-        consultants.createList().then(data=>{
-        res.locals.consultants=data
-       // console.log(consultants.getList())
-        next() 
+  .get(function (req, res, next) {
+    if (agents.getList().length == 0) {
+      agents.createList().then(data => {
+        //console.log(data)
+        res.locals.agents = data
+        next()
       })
     }
   })
 
-  .get(function(req, res, next){
-    if(agents.getList().length==0){
-        agents.createList().then(data=>{
-          //console.log(data)
-          res.locals.agents=data
-          next()
-        })
-    }
-  })
 
-
-  .get(function(req, res, next){
-    agents.getCalendar().then(data=>{
+  .get(function (req, res, next) {
+    agents.getCalendar().then(data => {
       console.log(data)
-      res.locals.agence=data
+      res.locals.agence = data
       next()
-    })  
-  })
-
-
-
-  // .get(function(req, res, next){
-  //   sql.get().then(data=>{
-  //     res.locals.agents=data
-  //     next()
-  //   })
-  // })
-
-  .get(function(req, res, next){
-    console.log("lol")
-    console.log(res.locals.agence)
-    res.render("form/index", { 
-      datas:res.locals.agence,
-      agents:res.locals.agents
     })
   })
 
-
-
-
-
+  .get(function (req, res, next) {
+    res.render("form/index", {
+      datas: res.locals.agence,
+      agents: res.locals.agents
+    })
+  })
 
 module.exports = router;
 
