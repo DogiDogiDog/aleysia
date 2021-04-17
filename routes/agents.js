@@ -1,5 +1,7 @@
 "use strict"
 const sql = require('../lib/sqlfunction')
+const agents = require('../lib/Agents')
+
 const fs = require('fs')
 
 const express = require('express')
@@ -7,12 +9,10 @@ let router = express.Router()
 router.
 route('/add')
   .get((req, res) => {
-
     res.send("get agent")
   })
   .post((req, res) => {
-    sql.createAgent(req.body.Prenom, req.body.Nom, req.body.Objectif).then((data) => {
-      console.log(data)
+    agents.createAgent().then(data=>{
       res.render('response/addAgent')
     })
   })
@@ -20,14 +20,17 @@ route('/add')
 router
   .route('/list')
   .get((req, res) => {
+    agents.getList().then(data=>{
+      res.render('list/list_agents', {
+        agents:data
+      });
+    })
     sql.getCalendarFromAgents().then(data => {
       let dayWorked = iterateCalendar(data)
     //TODO display list of agents
     sql.getListAgents().then(data => {
       data = addInformations(data, dayWorked)
-      res.render('list/list_agents', {
-        data
-      });
+     
     })
   })
 })
@@ -35,14 +38,15 @@ router
 router
   .route('/calendar/:id')
   .get((req, res) => {
-
-    sql.getCalendar(req.params.id).then((data) => {
-      console.log(data)
+    agent=agents.getCalendar(req)
+    if(agent==null){
+      res.send("no agents")
+    }else{
       res.render('form/calendar', {
-        data: data,
+        data: agent,
         id_agent: req.params.id
       });
-    })
+    }
   })
 
   .post((req, res) => {

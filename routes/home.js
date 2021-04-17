@@ -20,27 +20,14 @@ route('/')
   })
 
   .get(function (req, res, next) {
-    if (agents.getList().length == 0) {
-      agents.createList().then(data => {
-        //console.log(data)
+      agents.getList().then(data => {
         res.locals.agents = data
         next()
-      })
-    }
-  })
-
-
-  .get(function (req, res, next) {
-    agents.getCalendar().then(data => {
-      console.log(data)
-      res.locals.agence = data
-      next()
-    })
+      }) 
   })
 
   .get(function (req, res, next) {
     res.render("form/index", {
-      datas: res.locals.agence,
       agents: res.locals.agents
     })
   })

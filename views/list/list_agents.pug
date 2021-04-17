@@ -2,17 +2,22 @@
 link(rel='stylesheet', href='/CSS/bootstrap.min.css')
 table.table
   thead
+    td 
     td id
-    td nom
     td prenom
+    td nom
+    td email
     td objectif
-  each user in data
+  each agent in agents
     tr
       td
-        a(href="calendar/"+user.id.value+"")
+        a(href="calendar/"+agent.id+"")
           button(type="button") Objectifs par mois
-      each objet, column in user
-        td #{objet.value}
+        td #{agent.id}
+        td #{agent.first_name}
+        td #{agent.name}
+        td #{agent.email}
+        td #{agent.objectif}
       
 
   a(href="/home") HOME

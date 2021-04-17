@@ -24,18 +24,8 @@ body.container
       td decembre
     tr
       td Objectif par mois
-      td= datas.janvier.value
-      td= datas.fevrier.value
-      td= datas.mars.value
-      td= datas.avril.value
-      td= datas.mai.value
-      td= datas.juin.value
-      td= datas.juillet.value
-      td= datas.aout.value
-      td= datas.septembre.value
-      td= datas.octobre.value
-      td= datas.novembre.value
-      td= datas.decembre.value
+      each objet, column in agents
+        td #{objet.value}
 
 
 include addElement.pug
