@@ -59,14 +59,22 @@ CREATE TRIGGER calendar_agent
  VALUES((SELECT id FROM AGENT
  WHERE id=(SELECT id from inserted)), YEAR(GETDATE()));
 
+
+ CREATE TRIGGER insert_agent
+ ON Credentials
+ AFTER INSERT
+ AS
+ INSERT INTO Agent(name, first_name, email)
+ VALUES('sdsds','ssdsds',(SELECT email FROM Credentials as C WHERE C.email=(SELECT email from inserted)))
+
 INSERT INTO CREDENTIALS(email, psw)
 VALUES
-('thirry.lemarchand@aleysia.com', 'www'),
+('thirry.lemarchand@aaaleysdia.com', 'www'),
 ('william.zaborowski@aleysia.com','www')
 
 
-INSERT INTO AGENT(name, first_name, email, objectif) VALUES
-('thirry','lemarchand','thirry.lemarchand@aleysia.com',34000)
+INSERT INTO AGENT(name, first_name, email) VALUES
+('thirry','lemarchand','thirry.lemarchand@aleysia.com')
 INSERT INTO AGENT(name, first_name, email, objectif) VALUES
 ('pierre','tutu','william.zaborowski@aleysia.com',35000)
 INSERT INTO AGENT(name, first_name, email, objectif) VALUES
